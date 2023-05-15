@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+  }
+  
+  .slideshow-container {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+  
+  .mySlides {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+  }
+  
+  .playful-font {
+    font-family: 'Indie Flower', cursive;
+    font-size: xx-large;
+    font-weight: bolder;
+    font-style: oblique;
+  }
+
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  

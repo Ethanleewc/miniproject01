@@ -1,0 +1,31 @@
+<!-- <mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button class="example-icon favorite-icon" (click)="goHome()" aria-label="Example icon-button with heart icon">
+      <mat-icon aria-hidden="false" aria-label="home icon" fontIcon="self_improvement"></mat-icon>
+    </button>
+    <span>Eat Right Solutions</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+<router-outlet></router-outlet> -->
+
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="goHome()">
+      <mat-icon aria-hidden="false" aria-label="home icon" fontIcon="self_improvement"></mat-icon>
+    </button>
+    <span class="playful-font">Eat Rite!</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="slideshow-container">
+  <img src="https://images.unsplash.com/photo-1628573255381-e1b7712b5ba0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" class="mySlides">
+  <img src="https://images.unsplash.com/photo-1634925718077-8b5c093f3d75?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" class="mySlides">
+  <img src="https://images.unsplash.com/photo-1675110621195-f176013647fe?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" class="mySlides">
+</div>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
