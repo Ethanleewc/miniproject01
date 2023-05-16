@@ -8,11 +8,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './components/search.component';
+import { ListComponent } from './components/list.component';
+import { DetailsComponent } from './components/details.component';
+import { RemarksComponent } from './components/remarks.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
+    ListComponent,
+    DetailsComponent,
+    RemarksComponent,
 
   ],
   imports: [

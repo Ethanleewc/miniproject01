@@ -4,8 +4,8 @@
     <form [formGroup]="form" (ngSubmit)="search()">
       <mat-form-field appearance="fill">
         <mat-label>Enter a Cuisine</mat-label>
-        <input matInput size="60" formControlName="cuisineName">
-        <mat-error *ngIf="form.get('cuisineName')?.hasError('required')">Please enter a cuisine</mat-error>
+        <input matInput size="60" formControlName="cuisineType">
+        <mat-error *ngIf="form.get('cuisineType')?.hasError('required')">Please enter a cuisine</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">
@@ -21,6 +21,7 @@
         <mat-error *ngIf="form.get('maxCarbs')?.hasError('required')">Please enter maximum Carbs</mat-error>
         <mat-error *ngIf="form.get('maxCarbs')?.hasError('min') || form.get('maxCarbs')?.hasError('max')">Please enter a value between 1-9999</mat-error>
       </mat-form-field>
+      <br>
       <button mat-raised-button type="submit" [disabled]="!form.valid">Search</button>
     </form>
   </div>
