@@ -9,17 +9,17 @@
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">
-        <mat-label>Enter Minimum Carbs</mat-label>
-        <input matInput type="number" size="60" formControlName="minCarbs">
-        <mat-error *ngIf="form.get('minCarbs')?.hasError('required')">Please enter minimum Carbs</mat-error>
-        <mat-error *ngIf="form.get('minCarbs')?.hasError('min') || form.get('minCarbs')?.hasError('max')">Please enter a value between 1-9999</mat-error>
+        <mat-label>Enter Minimum Calories</mat-label>
+        <input matInput type="number" size="60" formControlName="minCalories">
+        <mat-error *ngIf="form.get('minCalories')?.hasError('required')">Please enter minimum Calories</mat-error>
+        <mat-error *ngIf="form.get('minCalories')?.hasError('min') || form.get('minCalories')?.hasError('max')">Please enter a value between 1-9999</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">
-        <mat-label>Enter Maximum Carbs</mat-label>
-        <input matInput type="number" size="60" formControlName="maxCarbs">
-        <mat-error *ngIf="form.get('maxCarbs')?.hasError('required')">Please enter maximum Carbs</mat-error>
-        <mat-error *ngIf="form.get('maxCarbs')?.hasError('min') || form.get('maxCarbs')?.hasError('max')">Please enter a value between 1-9999</mat-error>
+        <mat-label>Enter Maximum Calories</mat-label>
+        <input matInput type="number" size="60" formControlName="maxCalories">
+        <mat-error *ngIf="form.get('maxCalories')?.hasError('required')">Please enter maximum Calories</mat-error>
+        <mat-error *ngIf="form.get('maxCalories')?.hasError('min') || form.get('maxCalories')?.hasError('max')">Please enter a value between 1-9999</mat-error>
       </mat-form-field>
       <br>
       <button mat-raised-button type="submit" [disabled]="!form.valid">Search</button>

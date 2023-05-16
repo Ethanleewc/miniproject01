@@ -11,8 +11,8 @@ import { RecipeService } from '../service/recipe.service';
 })
 export class ListComponent implements OnInit, OnDestroy{
   cuisineType = "";
-  minCarbs = "";
-  maxCarbs = "";
+  minCalories = "";
+  maxCalories = "";
   param$! : Subscription;
   recipes! : Recipe[]
   constructor(private activatedRoute: ActivatedRoute,
@@ -24,10 +24,10 @@ export class ListComponent implements OnInit, OnDestroy{
     this.param$ = this.activatedRoute.params.subscribe(
       async (params) => {
         this.cuisineType = params['cuisineType'];
-        this.minCarbs = params['minCarbs'];
-        this.maxCarbs = params['maxCarbs'];
+        this.minCalories = params['minCalories'];
+        this.maxCalories = params['maxCalories'];
         console.log(this.cuisineType);
-        const l = await this.recipeSvc.getRecipes(this.cuisineType, this.minCarbs, this.maxCarbs);
+        const l = await this.recipeSvc.getRecipes(this.cuisineType, this.minCalories, this.maxCalories);
         console.log(l);
         if (l === undefined || l.length == 0) {
           this.router.navigate(['/'])

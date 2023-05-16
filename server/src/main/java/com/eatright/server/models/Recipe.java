@@ -17,7 +17,7 @@ public class Recipe implements Serializable {
     private Integer id;
     private String title;
     private String image;
-    private String carbs;
+    private String calories;
     private String recipeCard;
     
     public Integer getId() {
@@ -38,11 +38,11 @@ public class Recipe implements Serializable {
     public void setImage(String image) {
         this.image = image;
     }
-    public String getCarbs() {
-        return carbs;
+    public String getCalories() {
+        return calories;
     }
-    public void setCarbs(String carbs) {
-        this.carbs = carbs;
+    public void setCalories(String calories) {
+        this.calories = calories;
     }
     public String getRecipeCard() {
         return recipeCard;
@@ -60,12 +60,12 @@ public class Recipe implements Serializable {
         
         JsonObject nutrition = o.getJsonObject("nutrition");
         JsonArray nutrients = nutrition.getJsonArray("nutrients");
-        JsonObject carbNutrient = nutrients.getJsonObject(0);
-        double carbAmount = carbNutrient.getJsonNumber("amount").doubleValue();
-        String carbUnit = carbNutrient.getString("unit");
-        String carbInfo = carbNutrient.getString("name") + ": " + carbAmount + carbUnit;
+        JsonObject caloriesNutrient = nutrients.getJsonObject(0);
+        double caloriesAmount = caloriesNutrient.getJsonNumber("amount").doubleValue();
+        String caloriesUnit = caloriesNutrient.getString("unit");
+        String caloriesInfo = caloriesNutrient.getString("name") + ": " + caloriesAmount + caloriesUnit;
 
-        r.carbs = carbInfo;
+        r.calories = caloriesInfo;
         return r;
     }
 
@@ -88,7 +88,7 @@ public class Recipe implements Serializable {
                 .add("id", getId())
                 .add("title", getTitle())
                 .add("image", getImage())
-                .add("nutrients", getCarbs())
+                .add("nutrients", getCalories())
                 .build();
     }
 }

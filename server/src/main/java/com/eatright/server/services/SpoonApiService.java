@@ -22,7 +22,7 @@ public class SpoonApiService {
     @Value("${miniproject01.spoonacular.api.key}")
     private String spoonApiKey;
 
-    public Optional<List<Recipe>> getRecipes(String cuisineType, Integer minCarbs, Integer maxCarbs) {
+    public Optional<List<Recipe>> getRecipes(String cuisineType, Integer minCalories, Integer maxCalories) {
         ResponseEntity<String> resp = null;
         List<Recipe> c = null;
         System.out.println(spoonApiKey);
@@ -30,8 +30,8 @@ public class SpoonApiService {
         String spoonRecipeApiUrl = UriComponentsBuilder
                                     .fromUriString(spoonApiUrl + "complexSearch")
                                     .queryParam("cuisine", cuisineType.replaceAll("", "+"))
-                                    .queryParam("minCarbs", minCarbs)
-                                    .queryParam("maxCarbs", maxCarbs)
+                                    .queryParam("minCalories", minCalories)
+                                    .queryParam("maxCalories", maxCalories)
                                     .queryParam("apiKey", spoonApiKey.trim())
                                     .toUriString();
         System.out.println(spoonRecipeApiUrl);

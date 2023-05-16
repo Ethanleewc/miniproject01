@@ -12,11 +12,11 @@ export class RecipeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getRecipes(cuisineType: string, minCarbs: string, maxCarbs: string): Promise<any>{
+  getRecipes(cuisineType: string, minCalories: string, maxCalories: string): Promise<any>{
     const params = new HttpParams()
         .set("cuisineType", cuisineType)
-        .set("minCarbs", minCarbs)
-        .set("maxCarbs", maxCarbs);
+        .set("minCalories", minCalories)
+        .set("maxCalories", maxCalories);
 
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
 

@@ -5,7 +5,7 @@
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
-      <h3>Remarks:</h3>
+      <h3>Uploaded Remarks:</h3>
       <mat-nav-list class="remarks-list">
         <a mat-list-item *ngFor="let c of remarks">
           {{c?.remarks}}
@@ -13,7 +13,7 @@
       </mat-nav-list>
     </mat-card-content>
     <mat-card-actions class="comment-button">
-      <button mat-raised-button type="button" (click)="addComent()">Comment</button>
+      <button mat-raised-button type="button" (click)="addComent()">Remark</button>
     </mat-card-actions>
   </mat-card>
   

@@ -10,8 +10,8 @@ import { Router } from '@angular/router';
 export class SearchComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   cuisineType?: string;
-  minCarbs?: number;
-  maxCarbs?: number;
+  minCalories?: number;
+  maxCalories?: number;
 
   constructor(private formBuilder: FormBuilder, private router: Router) {}
 
@@ -23,24 +23,24 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   search(): void {
     const cuisineType = this.form?.value['cuisineType'];
-    const minCarbs = this.form?.value['minCarbs'];
-    const maxCarbs = this.form?.value['maxCarbs'];
-    this.router.navigate(['/list', cuisineType, minCarbs, maxCarbs]);
+    const minCalories = this.form?.value['minCalories'];
+    const maxCalories = this.form?.value['maxCalories'];
+    this.router.navigate(['/list', cuisineType, minCalories, maxCalories]);
   }
 
   private createForm(): FormGroup {
     return this.formBuilder.group({
       cuisineType: this.formBuilder.control('', Validators.required),
-      minCarbs: this.formBuilder.control('', [Validators.required, Validators.min(1), Validators.max(9999)]),
-      maxCarbs: this.formBuilder.control('', [Validators.required, Validators.min(1), Validators.max(9999)])
+      minCalories: this.formBuilder.control('', [Validators.required, Validators.min(1), Validators.max(9999)]),
+      maxCalories: this.formBuilder.control('', [Validators.required, Validators.min(1), Validators.max(9999)])
     }, { validators: this.validateCarbs });
   }
 
   private validateCarbs(group: FormGroup): { [key: string]: any } | null {
-    const minCarbs = group.get('minCarbs')?.value;
-    const maxCarbs = group.get('maxCarbs')?.value;
+    const minCalories = group.get('minCalories')?.value;
+    const maxCalories = group.get('maxCalories')?.value;
 
-    if (minCarbs > maxCarbs) {
+    if (minCalories > maxCalories) {
       return { invalidRange: true };
     }
 
