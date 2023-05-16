@@ -38,10 +38,10 @@ export class RecipeService {
         .get<Remark[]>(this.API_URI+"/remarks/" + recipeId, {headers: headers}));
   }
 
-  saveRemark(c:Remark) : Promise<any>{
+  saveRemark(r:Remark) : Promise<any>{
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
-    const body=JSON.stringify(c);
+    const body=JSON.stringify(r);
     console.log("Remark saved !");
-    return lastValueFrom(this.httpClient.post<Remark>(this.API_URI+"/" + c.id, body, {headers: headers}));
+    return lastValueFrom(this.httpClient.post<Remark>(this.API_URI+"/" + r.id, body, {headers: headers}));
   }
 }

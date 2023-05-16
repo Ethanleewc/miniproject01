@@ -26,11 +26,9 @@ export class RemarksComponent implements OnInit, OnDestroy{
     this.form = this.createForm();
     this.queryParams$ = this.activatedRoute.queryParams.subscribe(
       (queryParams) => {
-        this.recipeParam = queryParams['recipeParam'].split('|');
-        console.log(this.recipeParam[0]);
-        console.log(this.recipeParam[1]);
-        this.recipeTitle = this.recipeParam[0];
-        this.recipeId = this.recipeParam[1];
+        this.recipeParam = queryParams['recipeParam'];
+        console.log(this.recipeParam);
+        this.recipeId = this.recipeParam;
       }
     );
 
@@ -39,8 +37,9 @@ export class RemarksComponent implements OnInit, OnDestroy{
   saveRemark(){
     const remarkFormVal = this.form?.value['remark'];
     const r = {} as Remark;
-    r.remark = remarkFormVal;
+    r.remarks = remarkFormVal;
     r.id = this.recipeId;
+    console.log(r.remarks);
 
     this.recipeSvc.saveRemark(r);
     this.router.navigate(['/details', this.recipeId]);
