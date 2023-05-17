@@ -44,4 +44,10 @@ export class RecipeService {
     console.log("Remark saved !");
     return lastValueFrom(this.httpClient.post<Remark>(this.API_URI+"/" + r.id, body, {headers: headers}));
   }
+
+  deleteRemark(recipeId: string): Promise<any>{
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    console.log("Remark deleted !");
+    return lastValueFrom(this.httpClient.delete<Remark>(this.API_URI+"/remarks/" + recipeId, {headers: headers}));
+  }
 }

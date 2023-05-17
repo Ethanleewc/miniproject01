@@ -41,9 +41,13 @@ export class DetailsComponent implements OnInit, OnDestroy{
 
   }
 
-  addComent(){
+  addRemark(){
     const queryParams: Params = { recipeParam: this.recipeId };
     this.router.navigate(['/remark'], {queryParams : queryParams})
+  }
+
+  deleteRemark(){
+    this.recipeSvc.deleteRemark(this.recipeId);
   }
 
   ngOnDestroy(): void{

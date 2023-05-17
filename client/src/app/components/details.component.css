@@ -1,4 +1,4 @@
-.example-card {
+.card {
     max-width: 800px;
     margin-bottom: 8px;
     position: absolute;
@@ -9,12 +9,12 @@
   }
 
 mat-card img{
-    object-fit: cover; /*this makes the image in src fit to the size specified below*/
-    width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
-    height: 100%;
+    object-fit: cover;
+    width: 120%;
+    height: 120%;
   }
 
-  .comment-button {
+  .remark-button {
     display: flex;
     justify-content: flex-end;
   }

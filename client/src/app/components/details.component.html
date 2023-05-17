@@ -1,19 +1,19 @@
-<mat-card *ngIf="card" class="example-card">
+<mat-card *ngIf="card" class="card">
     <mat-card-header>
       <mat-card-title-group>
         <img mat-card-image src="{{card.recipeCardImage}}">
       </mat-card-title-group>
     </mat-card-header>
     <mat-card-content>
-      <h3>Uploaded Remarks:</h3>
+      <h3>Your Remarks:</h3>
       <mat-nav-list class="remarks-list">
-        <a mat-list-item *ngFor="let c of remarks">
+        <a mat-list-item (click)="deleteRemark()" *ngFor="let c of remarks">
           {{c?.remarks}}
         </a>
       </mat-nav-list>
     </mat-card-content>
-    <mat-card-actions class="comment-button">
-      <button mat-raised-button type="button" (click)="addComent()">Remark</button>
+    <mat-card-actions class="remark-button">
+      <button mat-raised-button type="button" color="primary" (click)="addRemark()">Remark</button>
     </mat-card-actions>
   </mat-card>
   
