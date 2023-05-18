@@ -1,24 +1,24 @@
 <div class="box">
-    <h1>Your Ultimate Diet Recipes Starts Here!</h1>
+    <h1>Your Ultimate Diet Starts Here!</h1>
     <br>
     <form [formGroup]="form" (ngSubmit)="search()">
       <mat-form-field appearance="fill">
-        <mat-label>Enter a Cuisine</mat-label>
+        <mat-label>1. Enter a Cuisine</mat-label>
         <input matInput size="60" formControlName="cuisineType">
         <mat-error *ngIf="form.get('cuisineType')?.hasError('required')">Please enter a cuisine</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">
-        <mat-label>Enter Minimum Calories</mat-label>
+        <mat-label>2. Enter Min Calories</mat-label>
         <input matInput type="number" size="60" formControlName="minCalories">
-        <mat-error *ngIf="form.get('minCalories')?.hasError('required')">Please enter minimum Calories</mat-error>
+        <mat-error *ngIf="form.get('minCalories')?.hasError('required')">Please enter min Calories</mat-error>
         <mat-error *ngIf="form.get('minCalories')?.hasError('min') || form.get('minCalories')?.hasError('max')">Please enter a value between 1-9999</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">
-        <mat-label>Enter Maximum Calories</mat-label>
+        <mat-label>3. Enter Max Calories</mat-label>
         <input matInput type="number" size="60" formControlName="maxCalories">
-        <mat-error *ngIf="form.get('maxCalories')?.hasError('required')">Please enter maximum Calories</mat-error>
+        <mat-error *ngIf="form.get('maxCalories')?.hasError('required')">Please enter max Calories</mat-error>
         <mat-error *ngIf="form.get('maxCalories')?.hasError('min') || form.get('maxCalories')?.hasError('max')">Please enter a value between 1-9999</mat-error>
       </mat-form-field>
       <br>

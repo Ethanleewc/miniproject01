@@ -7,7 +7,7 @@
     <mat-card-content>
       <h3>Your Remarks:</h3>
       <mat-nav-list class="remarks-list">
-        <a mat-list-item (click)="deleteRemark()" *ngFor="let c of remarks">
+        <a mat-list-item (dblclick)="deleteRemark()" *ngFor="let c of remarks">
           {{c?.remarks}}
         </a>
       </mat-nav-list>
@@ -15,5 +15,31 @@
     <mat-card-actions class="remark-button">
       <button mat-raised-button type="button" color="primary" (click)="addRemark()">Remark</button>
     </mat-card-actions>
+  </mat-card>
+  
+  <mat-card class="sharecard">
+    <mat-card-header>
+      <mat-card-title>Share Recipe</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="shareForm">
+        <mat-form-field appearance="fill">
+          <mat-label>Recipient Email</mat-label>
+          <input matInput formControlName="recipient">
+          <mat-error *ngIf="shareForm.get('recipient')?.hasError('required')">Please enter an email address</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Subject</mat-label>
+          <input matInput formControlName="subject">
+          <mat-error *ngIf="shareForm.get('subject')?.hasError('required')">Please enter a subject</mat-error>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="shareRecipe()" [disabled]="!shareForm.valid">Share</button>
+    </mat-card-actions>
+    <div *ngIf="emailSent" class="success-message">
+      Shared successfully!
+    </div>
   </mat-card>
   

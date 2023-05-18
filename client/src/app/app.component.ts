@@ -32,6 +32,6 @@ export class AppComponent {
         slideIndex = 1;
       }
       slides[slideIndex - 1].style.display = "block";
-    }, 10000);
+    }, 8000);
   }
 }

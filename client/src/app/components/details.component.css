@@ -1,17 +1,18 @@
-.card {
-    max-width: 800px;
-    margin-bottom: 8px;
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 40px;
-  }
+.card,
+.sharecard {
+  max-width: 800px;
+  margin-bottom: 8px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 40px;
+  opacity: 0.975;
+}
 
 mat-card img{
     object-fit: cover;
-    width: 120%;
-    height: 120%;
+    width: 100%;
+    height: 100%;
   }
 
   .remark-button {
@@ -27,4 +28,7 @@ mat-card img{
   .remarks-list a {
     display: block;
   }
+
+
+  
   

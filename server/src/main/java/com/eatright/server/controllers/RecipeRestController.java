@@ -21,8 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eatright.server.models.Cards;
+import com.eatright.server.models.EmailDetails;
 import com.eatright.server.models.Recipe;
 import com.eatright.server.models.Remarks;
+import com.eatright.server.services.EmailServiceImpl;
 import com.eatright.server.services.RecipeService;
 
 import jakarta.json.Json;
@@ -38,6 +40,9 @@ public class RecipeRestController {
 
     @Autowired
     private RecipeService recpSvc;
+
+    @Autowired
+    private EmailServiceImpl emailService;
 
     @GetMapping
     public ResponseEntity<String> getRecipes(
@@ -115,5 +120,12 @@ public class RecipeRestController {
             .status(HttpStatus.OK)
             .contentType(MediaType.APPLICATION_JSON)
             .body("Remarks for recipe " + recipeId + " is deleted.");
-}
+    }
+
+    @PostMapping("/sendmail")
+    public String sendMail(@RequestBody EmailDetails details) {
+        String status
+        = emailService.sendSimpleMail(details);
+        return status;
+    }
 }

@@ -5,6 +5,8 @@ import { Remark } from '../models/remark';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipeService } from '../service/recipe.service';
 import { Card } from '../models/card';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Email } from '../models/email';
 
 @Component({
   selector: 'app-details',
@@ -19,9 +21,14 @@ export class DetailsComponent implements OnInit, OnDestroy{
   recipe! : Recipe;
   card! : Card;
   remarks!: Remark[];
+  shareForm!: FormGroup;
+  recipient?: String;
+  subject?: String;
+  msgBody?: String;
+  emailSent = false;
 
   constructor(private activatedRoute: ActivatedRoute, 
-    private recipeSvc: RecipeService, private router: Router){
+    private recipeSvc: RecipeService, private router: Router, private formBuilder: FormBuilder){
 
   }
 
@@ -39,6 +46,35 @@ export class DetailsComponent implements OnInit, OnDestroy{
       }
     );
 
+    this.shareForm = this.createForm();
+
+  }
+
+  shareRecipe(): void {
+    const recipientFormVal = this.shareForm?.value['recipient'];
+    const subjectFormVal = this.shareForm?.value['subject'];
+    const msgBodyFormVal = this.card.recipeCardImage;
+
+    const e = {} as Email;
+    e.recipient = recipientFormVal;
+    e.subject = subjectFormVal;
+    e.msgBody = msgBodyFormVal;
+
+    this.recipeSvc.sendEmail(e)
+      .then(() => {
+        this.emailSent = true;
+        console.log('Email sent!');
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+      });
+  }
+
+  private createForm(): FormGroup {
+    return this.formBuilder.group({
+      recipient: this.formBuilder.control('', [Validators.required, Validators.email]),
+      subject: this.formBuilder.control('', Validators.required),
+    });
   }
 
   addRemark(){
@@ -48,6 +84,8 @@ export class DetailsComponent implements OnInit, OnDestroy{
 
   deleteRemark(){
     this.recipeSvc.deleteRemark(this.recipeId);
+    const queryParams: Params = { recipeParam: this.recipeId };
+    this.router.navigate(['/remark'], {queryParams : queryParams})
   }
 
   ngOnDestroy(): void{

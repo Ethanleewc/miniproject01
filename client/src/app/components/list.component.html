@@ -1,14 +1,13 @@
-<mat-nav-list class="recipe-list">
-    <div class="recipe-item" *ngFor="let c of recipes">
-      <a mat-list-item [routerLink]="['/details', c.id]">
-        <div class="recipe-content">
-          <img class="recipe-image" src="{{ c.image }}" alt="">
-          <div class="recipe-details">
-            <h3 class="recipe-title">{{ c.title }}</h3>
-            <p class="recipe-nutrients">{{ c.nutrients }}</p>
-          </div>
-        </div>
-      </a>
+<mat-card class="recipe-card" *ngFor="let c of recipes" [routerLink]="['/details', c.id]">
+  <div class="recipe-content">
+    <div class="recipe-image-container">
+      <img class="recipe-image" src="{{ c.image }}" alt="">
     </div>
-  </mat-nav-list>
-  
+    <div class="recipe-details">
+      <div class="recipe-details-content">
+        <h3 class="recipe-title">{{ c.title }}</h3>
+        <p class="recipe-nutrients">{{ c.nutrients }}</p>
+      </div>
+    </div>
+  </div>
+</mat-card>

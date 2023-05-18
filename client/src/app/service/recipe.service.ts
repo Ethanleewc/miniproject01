@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { Recipe } from '../models/recipe';
 import { Remark } from '../models/remark';
+import { Email } from '../models/email';
 
 @Injectable({
   providedIn: 'root'
@@ -49,5 +50,12 @@ export class RecipeService {
     const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
     console.log("Remark deleted !");
     return lastValueFrom(this.httpClient.delete<Remark>(this.API_URI+"/remarks/" + recipeId, {headers: headers}));
+  }
+
+  sendEmail(e: Email): Promise<any> {
+    const headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+    const body=JSON.stringify(e);
+    console.log("email successful !");
+    return lastValueFrom(this.httpClient.post(this.API_URI + '/sendmail', body, {headers: headers, responseType: 'text'}));
   }
 }

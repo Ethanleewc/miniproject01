@@ -11,6 +11,7 @@ html, body {
     padding: 40px;
     border: 1px solid #ffffff;
     background-color: #ffffff;
+    opacity: 0.975;
   }
   
   .box form {
@@ -19,18 +20,4 @@ html, body {
     justify-content: center;
     align-items: center;
     height: 100%;
-  }
-  
-  .box input[type="text"] {
-    width: 100%;
-    max-width: 350px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px;
-    border: none;
-    border-bottom: 2px solid #333;
-    outline: none;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
   }
