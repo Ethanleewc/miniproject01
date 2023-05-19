@@ -82,6 +82,10 @@ export class DetailsComponent implements OnInit, OnDestroy{
     this.router.navigate(['/remark'], {queryParams : queryParams})
   }
 
+  goBack(){
+    this.router.navigate(['/'])
+  }
+
   deleteRemark(){
     this.recipeSvc.deleteRemark(this.recipeId);
     const queryParams: Params = { recipeParam: this.recipeId };

@@ -1,11 +1,12 @@
 .card,
+.remarkcard,
 .sharecard {
   max-width: 800px;
   margin-bottom: 8px;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  padding: 40px;
+  padding: 20px;
   opacity: 0.975;
 }
 
@@ -18,6 +19,7 @@ mat-card img{
   .remark-button {
     display: flex;
     justify-content: flex-end;
+    gap: 8px;
   }
   
   .remarks-list {
@@ -28,7 +30,3 @@ mat-card img{
   .remarks-list a {
     display: block;
   }
-
-
-  
-  

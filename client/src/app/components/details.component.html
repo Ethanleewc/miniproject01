@@ -1,9 +1,8 @@
 <mat-card *ngIf="card" class="card">
-    <mat-card-header>
-      <mat-card-title-group>
-        <img mat-card-image src="{{card.recipeCardImage}}">
-      </mat-card-title-group>
-    </mat-card-header>
+  <img mat-card-image src="{{card.recipeCardImage}}">
+</mat-card>
+
+    <mat-card class="remarkcard">
     <mat-card-content>
       <h3>Your Remarks:</h3>
       <mat-nav-list class="remarks-list">
@@ -13,6 +12,7 @@
       </mat-nav-list>
     </mat-card-content>
     <mat-card-actions class="remark-button">
+      <button mat-raised-button type="button" (click)="goBack()">Back</button>
       <button mat-raised-button type="button" color="primary" (click)="addRemark()">Remark</button>
     </mat-card-actions>
   </mat-card>

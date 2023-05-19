@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">eatrite</string>
+    <string name="title_activity_main">eatrite</string>
+    <string name="package_name">com.ethan.eatrite</string>
+    <string name="custom_url_scheme">com.ethan.eatrite</string>
+</resources>
