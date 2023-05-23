@@ -26,8 +26,8 @@ public class RecipeService {
     @Autowired
     private SqlRepo sqlRepo;
 
-    public Optional<List<Recipe>> getRecipe(String cuisineType, Integer minCalories, Integer maxCalories) {
-        return spoonApiSvc.getRecipes(cuisineType, minCalories, maxCalories);
+    public Optional<List<Recipe>> getRecipe(String cuisine, Integer minCalories, Integer maxCalories) {
+        return spoonApiSvc.getRecipes(cuisine, minCalories, maxCalories);
     }
     
     public Cards getRecipeDetails(String recipeId) throws IOException {

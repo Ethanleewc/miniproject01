@@ -4,8 +4,8 @@
     <form [formGroup]="form" (ngSubmit)="search()">
       <mat-form-field appearance="fill">
         <mat-label>1. Enter a Cuisine</mat-label>
-        <input matInput size="60" formControlName="cuisineType">
-        <mat-error *ngIf="form.get('cuisineType')?.hasError('required')">Please enter a cuisine</mat-error>
+        <input matInput size="60" formControlName="cuisine">
+        <mat-error *ngIf="form.get('cuisine')?.hasError('required')">Please enter a cuisine</mat-error>
       </mat-form-field>
       <br>
       <mat-form-field appearance="fill">

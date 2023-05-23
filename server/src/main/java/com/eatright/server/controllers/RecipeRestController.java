@@ -46,12 +46,12 @@ public class RecipeRestController {
 
     @GetMapping
     public ResponseEntity<String> getRecipes(
-        @RequestParam(required=true) String cuisineType,
+        @RequestParam(required=true) String cuisine,
         @RequestParam(required=true) Integer maxCalories,
         @RequestParam(required=true) Integer minCalories) {
 
         JsonArray result = null;
-        Optional<List<Recipe>> or = this.recpSvc.getRecipe(cuisineType, minCalories, maxCalories);
+        Optional<List<Recipe>> or = this.recpSvc.getRecipe(cuisine, minCalories, maxCalories);
         List<Recipe> results = or.get(); 
         JsonArrayBuilder arrBuilder = Json.createArrayBuilder();
         for (Recipe rp : results)

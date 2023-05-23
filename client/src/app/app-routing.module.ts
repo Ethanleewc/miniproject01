@@ -7,7 +7,7 @@ import { RemarksComponent } from './components/remarks.component';
 
 const routes: Routes = [
   {path:'', component:SearchComponent },
-  {path: 'list/:cuisineType/:minCalories/:maxCalories', component: ListComponent },
+  {path: 'list/:cuisine/:minCalories/:maxCalories', component: ListComponent },
   {path: 'details/:recipeId', component: DetailsComponent},
   {path: 'remark', component: RemarksComponent},
   {path: '**', redirectTo: '', pathMatch: 'full'} 

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SearchComponent implements OnInit, OnDestroy {
   form!: FormGroup;
-  cuisineType?: string;
+  cuisine?: string;
   minCalories?: number;
   maxCalories?: number;
 
@@ -22,15 +22,15 @@ export class SearchComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {}
 
   search(): void {
-    const cuisineType = this.form?.value['cuisineType'];
+    const cuisine = this.form?.value['cuisine'];
     const minCalories = this.form?.value['minCalories'];
     const maxCalories = this.form?.value['maxCalories'];
-    this.router.navigate(['/list', cuisineType, minCalories, maxCalories]);
+    this.router.navigate(['/list', cuisine, minCalories, maxCalories]);
   }
 
   private createForm(): FormGroup {
     return this.formBuilder.group({
-      cuisineType: this.formBuilder.control('', Validators.required),
+      cuisine: this.formBuilder.control('', Validators.required),
       minCalories: this.formBuilder.control('', [Validators.required, Validators.min(1), Validators.max(9999)]),
       maxCalories: this.formBuilder.control('', [Validators.required, Validators.min(1), Validators.max(9999)])
     }, { validators: this.validateCarbs });

@@ -10,7 +10,7 @@ import { RecipeService } from '../service/recipe.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit, OnDestroy{
-  cuisineType = "";
+  cuisine = "";
   minCalories = "";
   maxCalories = "";
   param$! : Subscription;
@@ -23,11 +23,11 @@ export class ListComponent implements OnInit, OnDestroy{
   ngOnInit(): void {
     this.param$ = this.activatedRoute.params.subscribe(
       async (params) => {
-        this.cuisineType = params['cuisineType'];
+        this.cuisine = params['cuisine'];
         this.minCalories = params['minCalories'];
         this.maxCalories = params['maxCalories'];
-        console.log(this.cuisineType);
-        const l = await this.recipeSvc.getRecipes(this.cuisineType, this.minCalories, this.maxCalories);
+        console.log(this.cuisine);
+        const l = await this.recipeSvc.getRecipes(this.cuisine, this.minCalories, this.maxCalories);
         console.log(l);
         if (l === undefined || l.length == 0) {
           this.router.navigate(['/'])

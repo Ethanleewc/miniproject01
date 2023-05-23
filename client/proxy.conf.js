@@ -11,7 +11,7 @@
 module.exports = [
   {
     context: [ '/api' ],
-    target: 'https://miniproject01-production.up.railway.app',
+    target: 'https://miniproject01-production-ef94.up.railway.app',
     secure: true,
     changeOrigin: true,
     headers: {

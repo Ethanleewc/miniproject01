@@ -13,9 +13,9 @@ export class RecipeService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getRecipes(cuisineType: string, minCalories: string, maxCalories: string): Promise<any>{
+  getRecipes(cuisine: string, minCalories: string, maxCalories: string): Promise<any>{
     const params = new HttpParams()
-        .set("cuisineType", cuisineType)
+        .set("cuisine", cuisine)
         .set("minCalories", minCalories)
         .set("maxCalories", maxCalories);
 

@@ -6,7 +6,7 @@ const config: CapacitorConfig = {
   webDir: 'dist/client',
   bundledWebRuntime: false,
   server: {
-    url: 'https://miniproject01-production.up.railway.app'
+    url: 'https://miniproject01-production-ef94.up.railway.app'
   }
 };
 
