@@ -1,4 +1,4 @@
-package com.ethan.eatrite;
+package com.EatenRite.app;
 
 import com.getcapacitor.BridgeActivity;
 
